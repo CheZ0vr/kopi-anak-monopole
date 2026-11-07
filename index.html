@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#191916">
+  <meta name="description" content="Kopi Anak Monopole — Coffee, comfort, and everyday moments in Surabaya.">
+  <title>Kopi Anak Monopole — Coffee for Every Day</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #191916;
+      --paper: #f4f1e9;
+      --cream: #e9e3d6;
+      --muted: #77766e;
+      --accent: #bd6d43;
+      --line: rgba(25,25,22,.16);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 48px));
+      margin: auto;
+    }
+
+    .topline {
+      height: 38px;
+      background: var(--ink);
+      color: var(--paper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    header {
+      position: absolute;
+      z-index: 5;
+      top: 38px;
+      left: 0;
+      width: 100%;
+      color: white;
+      border-bottom: 1px solid rgba(255,255,255,.22);
+    }
+
+    .nav {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      display: block;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: .27em;
+      opacity: .7;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .navlinks a { opacity: .86; }
+
+    .nav-cta {
+      border: 1px solid rgba(255,255,255,.65);
+      padding: 12px 17px;
+    }
+
+    .hero {
+      min-height: 710px;
+      height: min(850px, 92vh);
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      color: white;
+      background: #24231f;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(12,12,10,.76), rgba(12,12,10,.42) 52%, rgba(12,12,10,.08)),
+        linear-gradient(0deg, rgba(12,12,10,.46), transparent 55%),
+        url("https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=2200&q=85") center/cover;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding-bottom: 100px;
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .hero .eyebrow { color: #e0a17c; }
+
+    h1 {
+      font: 500 clamp(54px, 8.5vw, 112px)/.99 var(--serif);
+      letter-spacing: -.045em;
+      margin: 23px 0 25px;
+    }
+
+    .hero p {
+      max-width: 430px;
+      color: rgba(255,255,255,.78);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      transition: transform .2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-light {
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.55);
+      color: white;
+    }
+
+    .hero-note {
+      position: absolute;
+      right: 24px;
+      bottom: 42px;
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+      color: rgba(255,255,255,.7);
+    }
+
+    .intro {
+      padding: 120px 0 130px;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 10%;
+      align-items: start;
+    }
+
+    .intro h2 {
+      font: 500 clamp(38px,5vw,62px)/1.12 var(--serif);
+      letter-spacing: -.035em;
+      max-width: 440px;
+      margin: 18px 0;
+    }
+
+    .intro-copy {
+      padding-top: 38px;
+      max-width: 560px;
+    }
+
+    .intro-copy p {
+      font-size: 15px;
+      line-height: 2;
+      color: #5e5d56;
+    }
+
+    .small-link {
+      display: inline-block;
+      margin-top: 15px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--accent);
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .feature {
+      background: var(--cream);
+      padding: 105px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 44px;
+    }
+
+    .section-head h2 {
+      font: 500 clamp(38px,5vw,58px)/1.08 var(--serif);
+      letter-spacing: -.035em;
+      margin: 12px 0 0;
+    }
+
+    .section-head p {
+      max-width: 330px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .menu-card {
+      background: var(--cream);
+      padding: 34px 30px 38px;
+      min-height: 225px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .menu-card .number {
+      font-size: 10px;
+      letter-spacing: .18em;
+      color: var(--accent);
+    }
+
+    .menu-card h3 {
+      font: 500 28px var(--serif);
+      margin: 28px 0 10px;
+    }
+
+    .menu-card p {
+      font-size: 12px;
+      line-height: 1.8;
+      color: var(--muted);
+      max-width: 270px;
+    }
+
+    .signature {
+      padding: 120px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8%;
+      align-items: center;
+    }
+
+    .signature-image {
+      min-height: 520px;
+      background: url("https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=1200&q=85") center/cover;
+    }
+
+    .signature-copy { max-width: 470px; }
+
+    .signature-copy h2 {
+      font: 500 clamp(42px,5vw,65px)/1.08 var(--serif);
+      letter-spacing: -.04em;
+      margin: 18px 0 22px;
+    }
+
+    .signature-copy p {
+      font-size: 14px;
+      line-height: 1.95;
+      color: #66655e;
+    }
+
+    .signature-list {
+      border-top: 1px solid var(--line);
+      margin-top: 30px;
+    }
+
+    .signature-list div {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 12px;
+    }
+
+    .signature-list span:last-child { color: var(--muted); }
+
+    .visit {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 105px 0;
+    }
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10%;
+      align-items: start;
+    }
+
+    .visit h2 {
+      font: 500 clamp(42px,5vw,66px)/1.08 var(--serif);
+      letter-spacing: -.04em;
+      margin: 18px 0 25px;
+    }
+
+    .visit p {
+      font-size: 13px;
+      line-height: 1.9;
+      color: rgba(244,241,233,.65);
+    }
+
+    .visit-details {
+      border-top: 1px solid rgba(244,241,233,.24);
+      margin-top: 12px;
+    }
+
+    .detail {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(244,241,233,.24);
+    }
+
+    .detail label {
+      display: block;
+      color: #c98762;
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 9px;
+    }
+
+    .detail div {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    footer {
+      padding: 28px 0;
+      background: #11110f;
+      color: rgba(244,241,233,.58);
+      font-size: 10px;
+      letter-spacing: .08em;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-inner strong {
+      color: var(--paper);
+      font-weight: 600;
+    }
+
+    @media(max-width:760px) {
+      .wrap { width: min(100% - 36px,560px); }
+
+      .nav { height: 70px; }
+
+      .navlinks { gap: 14px; }
+
+      .navlinks a:not(.nav-cta) { display: none; }
+
+      .nav-cta { padding: 10px 12px; }
+
+      .hero {
+        min-height: 690px;
+        height: 88vh;
+      }
+
+      .hero-content { padding-bottom: 88px; }
+
+      h1 { font-size: clamp(54px,15vw,82px); }
+
+      .hero-note { display: none; }
+
+      .intro {
+        padding: 82px 0;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .intro-copy { padding-top: 0; }
+
+      .feature { padding: 80px 0; }
+
+      .section-head { display: block; }
+
+      .menu-grid { grid-template-columns: 1fr; }
+
+      .menu-card {
+        min-height: 185px;
+        padding: 27px;
+      }
+
+      .signature {
+        padding: 80px 0;
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+
+      .signature-image { min-height: 360px; }
+
+      .visit { padding: 80px 0; }
+
+      .visit-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      html { scroll-behavior: auto; }
+      *,*::before,*::after { transition: none!important; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topline">
+    From Surabaya, for everyday moments
+  </div>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#home">
+        Kopi Anak Monopole
+        <span>Part of Monopole Group</span>
+      </a>
+
+      <nav class="navlinks" aria-label="Main navigation">
+        <a href="#story">Our story</a>
+        <a href="#menu">Menu</a>
+        <a href="#visit" class="nav-cta">Find us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home">
+      <div class="hero-image"></div>
+
+      <div class="wrap hero-content">
+        <div class="eyebrow">
+          Coffee · Comfort · Everyday
+        </div>
+
+        <h1>
+          A good cup.<br>
+          A good day.
+        </h1>
+
+        <p>
+          Tempat sederhana untuk menikmati kopi,
+          menemukan rasa favorit, dan mengambil jeda
+          di tengah hari.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-light" href="#menu">
+            Explore the menu
+          </a>
+
+          <a class="btn btn-outline" href="#visit">
+            Visit Mayjen Sungkono
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-note">
+        Kopi Anak Monopole · Surabaya
+      </div>
+    </section>
+
+    <section class="wrap intro" id="story">
+      <div>
+        <div class="eyebrow">A little about us</div>
+
+        <h2>
+          Good coffee, made part of your day.
+        </h2>
+      </div>
+
+      <div class="intro-copy">
+        <p>
+          Kopi Anak Monopole tumbuh dari Monopole Coffee Lab
+          dengan gagasan yang sederhana: menyajikan produk
+          yang enak dinikmati, dalam ruang dengan desain
+          yang terasa dekat dengan keseharian.
+        </p>
+
+        <p>
+          Berawal pada 2020, brand ini lahir di Surabaya
+          dan berkembang ke berbagai kota. Sebuah tempat
+          untuk mampir, mengisi ulang energi, dan menikmati
+          momen tanpa perlu alasan khusus.
+        </p>
+
+        <a
+          class="small-link"
+          href="https://monopole.co.id/brand-detail/2/Kopi-Anak-Monopole"
+          target="_blank"
+          rel="noopener"
+        >
+          Discover the brand
+        </a>
+      </div>
+    </section>
+
+    <section class="feature" id="menu">
+      <div class="wrap">
+
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Find your favourite</div>
+
+            <h2>
+              Something for<br>
+              every kind of day.
+            </h2>
+          </div>
+
+          <p>
+            Dari espresso-based coffee hingga pilihan
+            non-coffee dan makanan. Pilihan menu dapat
+            berbeda antar-outlet.
+          </p>
+        </div>
+
+        <div class="menu-grid">
+
+          <article class="menu-card">
+            <span class="number">01 / COFFEE</span>
+            <div>
+              <h3>Classic Coffee</h3>
+              <p>
+                Espresso, cappuccino, latte, kopi hitam,
+                dan racikan kopi susu.
+              </p>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <span class="number">02 / SIGNATURE</span>
+            <div>
+              <h3>Hokkaido Series</h3>
+              <p>
+                Signature milk drinks dengan pilihan
+                Hokkaido Brown Milk dan Hokkaido Coffee Milk.
+              </p>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <span class="number">03 / NON-COFFEE</span>
+            <div>
+              <h3>Beyond Coffee</h3>
+              <p>
+                Tea, chocolate, green tea latte,
+                serta pilihan minuman segar.
+              </p>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <span class="number">04 / FOOD</span>
+            <div>
+              <h3>Monobowl</h3>
+              <p>
+                Pilihan rice bowl untuk menemani
+                waktu makan dan minum kopi.
+              </p>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <span class="number">05 / BITES</span>
+            <div>
+              <h3>Snacks</h3>
+              <p>
+                Teman ringan untuk jeda singkat
+                atau obrolan yang lebih panjang.
+              </p>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <span class="number">06 / TAKE HOME</span>
+            <div>
+              <h3>One-litre Bottles</h3>
+              <p>
+                Pilihan minuman ukuran besar
+                untuk dinikmati bersama.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+        <p style="font-size:10px;color:#77766e;margin-top:18px">
+          Informasi kategori menu dirangkum dari daftar menu publik.
+          Ketersediaan dan harga perlu dikonfirmasi langsung ke outlet.
+        </p>
+
+      </div>
+    </section>
+
+    <section class="wrap signature">
+
+      <div class="signature-image"></div>
+
+      <div class="signature-copy">
+        <div class="eyebrow">A Monopole favourite</div>
+
+        <h2>
+          Meet the Hokkaido Series.
+        </h2>
+
+        <p>
+          Rangkaian minuman signature yang memadukan
+          karakter creamy dengan pilihan rasa yang akrab.
+          Mulai dari yang klasik hingga sentuhan espresso.
+        </p>
+
+        <div class="signature-list">
+          <div>
+            <span>Hokkaido Brown Milk</span>
+            <span>Signature</span>
+          </div>
+
+          <div>
+            <span>Hokkaido Coffee Milk</span>
+            <span>Signature</span>
+          </div>
+        </div>
+
+        <a class="small-link" href="#visit">
+          Find your nearest moment
+        </a>
+      </div>
+
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="wrap visit-grid">
+
+        <div>
+          <div class="eyebrow">Come by</div>
+
+          <h2>
+            Your next coffee stop is here.
+          </h2>
+
+          <p>
+            Kunjungi outlet Kopi Anak Monopole di
+            Mayjen Sungkono, Surabaya. Cek kanal resmi
+            untuk informasi terbaru sebelum berkunjung.
+          </p>
+
+          <div class="actions">
+            <a
+              class="btn btn-light"
+              href="https://www.google.com/maps/search/?api=1&query=Kopi+Anak+Monopole+Mayjen+Sungkono+Surabaya"
+              target="_blank"
+              rel="noopener"
+            >
+              Get directions ↗
+            </a>
+
+            <a
+              class="btn btn-outline"
+              href="https://www.instagram.com/kopianakmonopole/"
+              target="_blank"
+              rel="noopener"
+            >
+              Instagram ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="visit-details">
+
+          <div class="detail">
+            <label>Mayjen Sungkono outlet</label>
+            <div>
+              Jl. Mayjen Sungkono No. 21<br>
+              Surabaya, Jawa Timur
+            </div>
+          </div>
+
+          <div class="detail">
+            <label>Follow along</label>
+            <div>@kopianakmonopole</div>
+          </div>
+
+          <div class="detail">
+            <label>Opening hours</label>
+            <div>
+              Jam operasional dapat berubah.
+              Silakan cek informasi terbaru di kanal outlet.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <strong>KOPI ANAK MONOPOLE</strong>
+
+      <span>
+        Independent concept preview · Not an official website
+      </span>
+
+      <span>
+        © <span id="year">2026</span>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
